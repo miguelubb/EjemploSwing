@@ -131,4 +131,8 @@ public class Controlador {
         }
         return new String[]{"-","-","-","-","-","-","-"};
     }
+
+    public String[] ListaDeProductos() {
+        return produtos.stream().map(p -> p.getSku()+" - "+ p.getNombre() ).toList().toArray(new String[0]);
+    }
 }

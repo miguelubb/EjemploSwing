@@ -1,5 +1,5 @@
 import controlador.Controlador;
-import vista.ReporteInventario;
+import vista.VentanaPrincipal;
 
 import java.time.LocalDate;
 
@@ -16,7 +16,7 @@ public class Main {
         ct.agregaMovimientoSalida("A", LocalDate.now().plusDays(3),10,"venta");
         ct.agregaMovimientoSalida("A", LocalDate.now().plusDays(4),10,"venta");
 
-        ReporteInventario.display();
+        VentanaPrincipal.display();
         System.exit(0);
     }
 }

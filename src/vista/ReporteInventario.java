@@ -7,12 +7,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.font.TextAttribute;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ReporteInventario extends JDialog {
     private JPanel contentPane;
@@ -101,7 +98,7 @@ public class ReporteInventario extends JDialog {
                     cFin.setText(fecha.format(formatoFechaChilena));
 
                 }catch (DateTimeParseException ex){
-                    Msg.alerta(cFin, "Formato de fecha incorrecto");
+                    Msg.alerta("Formato de fecha incorrecto");
                     ((JTextField)e.getSource()).setBorder(BorderFactory.createLineBorder(Color.RED));
                 }
             }
@@ -144,6 +141,7 @@ public class ReporteInventario extends JDialog {
         tablaEntradas.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
         tablaEntradas.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
         tablaEntradas.getColumnModel().getColumn(4).setCellRenderer(rightRenderer);
+
         tablaSalidas.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
         tablaSalidas.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
         tablaSalidas.getColumnModel().getColumn(4).setCellRenderer(rightRenderer);
@@ -160,10 +158,10 @@ public class ReporteInventario extends JDialog {
         dispose();
     }
 
-    public static void display() {
+    public static void display(Component component) {
         ReporteInventario dialog = new ReporteInventario();
         dialog.pack();
-        dialog.setLocationRelativeTo(null);
+        dialog.setLocationRelativeTo(component);
         dialog.setVisible(true);
     }
 
